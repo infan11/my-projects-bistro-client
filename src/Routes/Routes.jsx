@@ -8,6 +8,8 @@ import Contactus from "../Components/LayOut/ContactUs/Contactus";
 import Dashboard from "../Components/LayOut/DashBoard/Dashboard";
 import OurMenu from "../Components/LayOut/OurMenu/OurMenu";
 import OurShop from "../Components/LayOut/OurShop/OurShop";
+import Login from "../Components/LayOut/verifyAuth/Login/Login";
+import Register from "../Components/LayOut/verifyAuth/Register/Register";
 
  export const router = createBrowserRouter([
     {
@@ -18,6 +20,14 @@ import OurShop from "../Components/LayOut/OurShop/OurShop";
         {
             path: "/",
             element: <Home></Home>
+        },
+        {
+           path: "/login",
+           element: <Login></Login>
+        },
+        {
+           path: "/register",
+           element: <Register></Register>
         },
         {
           path:"/contactUs",
