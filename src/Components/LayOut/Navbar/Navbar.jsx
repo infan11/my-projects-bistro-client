@@ -1,46 +1,65 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-
-
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import { GoHome } from "react-icons/go";
+import { HiOutlineLogout } from "react-icons/hi";
+import { IoLogIn } from "react-icons/io5";
+import { BiSolidFoodMenu } from "react-icons/bi";
+import { MdOutlineDashboardCustomize } from "react-icons/md";
+import { MdOutlineRestaurant } from "react-icons/md";
+import { MdOutlineConnectWithoutContact } from "react-icons/md";
 const Navbar = () => {
-    const navLinks = <>
+
+  const {user , logout} = useContext(AuthContext);
+  const handleLogout  = () => {
+    logout() 
+    .then(() => {} )
+    .catch(error => console.error(error))
+  }
+  
+
+
+
+                     
+  const navLinks = <>
     <NavLink to="/"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "font-bold  text-yellow-400 " : ""
+    isPending ? "pending" : isActive ? "font-bold  flex items-center gap-2 text-yellow-400 " : ""
   }
 >
-  HOME
+<GoHome />HOME
          
   </NavLink>
   <NavLink to="/contactUs"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "font-bold   text-yellow-400  " : ""
+    isPending ? "pending" : isActive ? "font-bold flex items-center gap-2  text-yellow-400  " : ""
   }
 >
-  CONTACTUS
+  <MdOutlineConnectWithoutContact/>CONTACTUS
          
   </NavLink>
   <NavLink to="/dashboard"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "font-bold   text-yellow-400  " : ""
+    isPending ? "pending" : isActive ? "font-bold  flex items-center gap-2 text-yellow-400  " : ""
   }
 >
-  DASHBOARD
+ <MdOutlineDashboardCustomize/> DASHBOARD
          
   </NavLink>
   <NavLink to="/ourMenu"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "font-bold   text-yellow-400  " : ""
+    isPending ? "pending" : isActive ? "font-bold flex items-center gap-2  text-yellow-400  " : ""
   }
 >
-  OURMENU
+<BiSolidFoodMenu />OUR MENU
          
   </NavLink>
   <NavLink to="/ourShop"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "font-bold   text-yellow-400  " : ""
+    isPending ? "pending" : isActive ? "font-bold flex items-center gap-2 text-yellow-400  " : ""
   }
 >
-  OURSHOP
+  <MdOutlineRestaurant></MdOutlineRestaurant> OURSHOP
          
   </NavLink>
   
@@ -48,7 +67,7 @@ const Navbar = () => {
   </>
     return (
         <div>
-          <div className=" navbar fixed z-10 b g-[#8000806c] max-w-6xl mx-auto  font-[Inter]">
+          <div className=" navbar fixed z-10 bg-[#8000806c] max-w-6xl mx-auto  font-[Inter]">
              <div className="flex-1">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -65,7 +84,7 @@ const Navbar = () => {
 
   </div>
   <div className="navbar-center  hidden lg:flex">
-    <ul className="menu menu-horizontal gap-3  text-white font-bold text-[15px]">
+    <ul className="menu menu-horizontal gap-10   text-white font-bold ">
       {navLinks}
     </ul>
   </div>
@@ -87,30 +106,83 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-    <NavLink to="/login"
+
+{  user ? <><NavLink onClick={handleLogout}
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "font-bold mr-2  text-white hover:underline  " : ""
+    isPending ? "pending" : isActive ? "font-bold   text-yellow-400  " : ""
   }
 >
-  LOGIN
+<HiOutlineLogout />SIGNOUT
+         
+  </NavLink></> :<>
+  <NavLink  to="/login"
+  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "font-bold mr-5 text-yellow-400  " : ""
+  }
+>
+<IoLogIn />SIGNIN
+         
+  </NavLink> 
+
+  
+  <NavLink to="/register"
+  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "font-bold   text-yellow-400  " : ""
+  }
+>
+  
          
   </NavLink>
+  </>}
+  
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
-          <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          <img alt="" src={user?.photoURL} />
         </div>
       </div>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+     <div data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="2000">
+     <ul  tabIndex={0} className="menu menu-sm dropdown-content text-white mb-5  p-5 shadow bg-[#432c8f] rounded-box w-96 h-96">
+      <div className="">
+          <img alt="" src={user?.photoURL} className="rounded-full w-28 mx-auto" />
+        </div>
+        <br />
+        <li><a>{user?.email}</a></li>
+        <div className="divider"></div>
+        <li><a>{user?.displayName}</a></li>
+        <div className="divider"></div>  
         <li>
-          <a className="justify-between">
-            Profile
-            <span className="badge">New</span>
-          </a>
-        </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+{  user ? <><NavLink onClick={handleLogout}
+  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "font-bold   text-yellow-400  " : ""
+  }
+>
+<HiOutlineLogout />SIGNOUT
+         
+  </NavLink></> :<>
+  <NavLink  to="/login"
+  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "font-bold  text-yellow-400  " : ""
+  }
+>
+<IoLogIn />SIGNIN
+         
+  </NavLink> 
+
+  
+  <NavLink to="/register"
+  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "font-bold   text-yellow-400  " : ""
+  }
+>
+  
+         
+  </NavLink>
+  </>}</li>
       </ul>
+     </div>
     </div>
   </div>
 </div>

@@ -10,6 +10,8 @@ import OurMenu from "../Components/LayOut/OurMenu/OurMenu";
 import OurShop from "../Components/LayOut/OurShop/OurShop";
 import Login from "../Components/LayOut/verifyAuth/Login/Login";
 import Register from "../Components/LayOut/verifyAuth/Register/Register";
+import PrivateRoute from "./PrivateRoutes/PrivateRoute";
+
 
  export const router = createBrowserRouter([
     {
@@ -35,14 +37,14 @@ import Register from "../Components/LayOut/verifyAuth/Register/Register";
         },
         {
           path:"/dashboard",
-          element:<Dashboard></Dashboard>
+          element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>
         },
         {
          path:"/ourMenu",
          element: <OurMenu></OurMenu>
         },
         {
-          path:"ourShop",
+          path:"/ourShop",
           element: <OurShop></OurShop>
         }
       ]
