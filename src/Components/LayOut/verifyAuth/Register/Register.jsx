@@ -27,7 +27,7 @@ const Register = () => {
             footer: '<a href="#">Why do I have this issue?</a>'
           });
     } 
-    createUser(email, password, photo)
+    createUser(email, password)
     .then(result => {
       const createRegister = result.user;
       console.log(createRegister)

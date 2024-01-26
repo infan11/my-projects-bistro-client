@@ -10,7 +10,7 @@ import inageF from '../../../..../../../../../bistro-boss-restaurant-resources/a
 
 const Banner = () => {
     return (
-        <div>
+        <div data-aos="zoom-in-up">
            <Carousel>
                 <div>
                     <img src={inageA} />

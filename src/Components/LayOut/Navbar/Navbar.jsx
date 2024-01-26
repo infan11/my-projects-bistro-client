@@ -66,7 +66,7 @@ const Navbar = () => {
   
   </>
     return (
-        <div>
+        <div data-aos="fade-down">
           <div className=" navbar fixed z-10 bg-[#8000806c] max-w-6xl mx-auto  font-[Inter]">
              <div className="flex-1">
     <div className="dropdown">
@@ -138,15 +138,15 @@ const Navbar = () => {
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
-          <img alt="" src={user?.photoURL} />
+          <img  src={user?.photoURL} />
         </div>
       </div>
      <div data-aos="fade-down"
      data-aos-easing="linear"
      data-aos-duration="2000">
-     <ul  tabIndex={0} className="menu menu-sm dropdown-content text-white mb-5  p-5 shadow bg-[#432c8f] rounded-box w-96 h-96">
+     <ul  tabIndex={0} className="menu menu-sm dropdown-content text-white mb-5  p-5 shadow bg-[#432c8f] rounded-box w-80 h-96">
       <div className="">
-          <img alt="" src={user?.photoURL} className="rounded-full w-28 mx-auto" />
+          <img  src={user?.photoURL} className="rounded-full w-28 mx-auto" />
         </div>
         <br />
         <li><a>{user?.email}</a></li>

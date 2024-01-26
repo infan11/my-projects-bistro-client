@@ -4,7 +4,6 @@ import { FcGoogle } from "react-icons/fc";
 import { IoLogoGithub } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import Alert from '@mui/material/Alert';
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../../../Firebase/firebase.config";
 const Login = () => {
@@ -27,7 +26,7 @@ const Login = () => {
             footer: '<a href="#"></a>'
           });
     } 
-    signInUser(email , password)
+    signInUser(email , password )
     .then(result => {
         const loginUser  =  result.user;
         console.log(loginUser);
@@ -91,7 +90,7 @@ const handleAuthGoogle = () =>{
         const googleUser = result.user;
         console.log(googleUser)
         Swal.fire({
-          title: "Successfully Google Register",
+          title: "Successfully Google Login",
           showClass: {
             popup: `
               animate__animated
@@ -116,7 +115,7 @@ const handleGithubUser = () => {
         const githubUser = result.user;
         console.log(githubUser);
         Swal.fire({
-          title: "Successfully Github Register",
+          title: "Successfully Github Login",
           showClass: {
             popup: `
               animate__animated
@@ -146,7 +145,7 @@ const handleGithubUser = () => {
         <button onClick={handleGithubUser} className="bg-black text-white text-3xl"><IoLogoGithub /></button>
         </div>
         <div className="divider divider-primary">or</div>
-        <p className="text-black text-center font-bold font-mono ">You Have a Account ?  Now <Link className="text-xl text-green-600 " to={"/register"}>SignUp</Link></p>
+        <p className="text-black text-center font-bold font-mono ">You Have a Account ?  Now <Link className="text-xl text-green-600 " to={"/Login"}>SignUp</Link></p>
 
         <div className="form-control">
           <label className="label">

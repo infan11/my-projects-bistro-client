@@ -12,9 +12,9 @@ const [user , setUser] = useState([]);
 
 const [loading , setLoading]= useState(false);
 
-const createUser = (email , password ,photo) =>{
+const createUser = (email , password ,) =>{
     setLoading(true);
-    return createUserWithEmailAndPassword(auth , email ,password , photo);
+    return createUserWithEmailAndPassword(auth , email ,password );
 
 }
 const signInUser = (email , password) =>{

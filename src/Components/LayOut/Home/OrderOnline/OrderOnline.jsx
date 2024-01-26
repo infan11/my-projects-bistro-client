@@ -20,8 +20,14 @@ import imageF from"../../../../../../bistro-boss-restaurant-resources/assets/hom
 import imageG from"../../../../../../bistro-boss-restaurant-resources/assets/home/slide2.jpg"
 const OrderOnline = () => {
     return (
-        <div>
-            <SectionTitle heading={"---From 11:00am to 10:00pm---"} subHeading={"ORDER ONLINE"}></SectionTitle>
+        <div >
+          <div  data-aos="fade-left"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
+          <SectionTitle heading={"---From 11:00am to 10:00pm---"} subHeading={"ORDER ONLINE"}></SectionTitle>
+
+          </div>
+            <div data-aos="flip-up">
             <section className="w-1/2 mx-auto">
             <Swiper
         slidesPerView={4}
@@ -43,6 +49,7 @@ const OrderOnline = () => {
        
       </Swiper>
             </section>
+            </div>
         </div>
     );
 };
