@@ -21,9 +21,9 @@ import imageG from"../../../../../../bistro-boss-restaurant-resources/assets/hom
 const OrderOnline = () => {
     return (
         <div >
-          <div  data-aos="fade-left"
+          <div   data-aos="fade-left"
      data-aos-offset="300"
-     data-aos-easing="ease-in-sine">
+     data-aos-easing="ease-in-sine" className="">
           <SectionTitle heading={"---From 11:00am to 10:00pm---"} subHeading={"ORDER ONLINE"}></SectionTitle>
 
           </div>

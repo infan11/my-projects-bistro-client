@@ -20,7 +20,7 @@ const CheckOutMenu = () => {
            <SectionTitle   heading={"---Check it out---"} subHeading={"FROM OUR MENU"}></SectionTitle>
 
             </div>
-            <div  className="grid md:grid-cols-2 gap-3 ">
+            <div  className="  grid md:grid-cols-2 gap-3 ">
                 {
                     menu.map(item  => <MenuItem key={item.id} item={item} ></MenuItem>)
                 }
