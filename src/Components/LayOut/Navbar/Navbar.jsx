@@ -1,13 +1,7 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
-import { GoHome } from "react-icons/go";
-import { HiOutlineLogout } from "react-icons/hi";
-import { IoLogIn } from "react-icons/io5";
-import { BiSolidFoodMenu } from "react-icons/bi";
-import { MdOutlineDashboardCustomize } from "react-icons/md";
-import { MdOutlineRestaurant } from "react-icons/md";
-import { MdOutlineConnectWithoutContact } from "react-icons/md";
+
 const Navbar = () => {
 
   const {user , logout} = useContext(AuthContext);
@@ -27,7 +21,7 @@ const Navbar = () => {
     isPending ? "pending" : isActive ? "font-bold  flex items-center gap-2 text-yellow-400 " : ""
   }
 >
-<GoHome />HOME
+HOME
          
   </NavLink>
   <NavLink to="/contactUs"
@@ -35,7 +29,7 @@ const Navbar = () => {
     isPending ? "pending" : isActive ? "font-bold flex items-center gap-2  text-yellow-400  " : ""
   }
 >
-  <MdOutlineConnectWithoutContact/>CONTACTUS
+CONTACTUS
          
   </NavLink>
   <NavLink to="/dashboard"
@@ -43,15 +37,15 @@ const Navbar = () => {
     isPending ? "pending" : isActive ? "font-bold  flex items-center gap-2 text-yellow-400  " : ""
   }
 >
- <MdOutlineDashboardCustomize/> DASHBOARD
+ DASHBOARD
          
   </NavLink>
-  <NavLink to="/ourMenu"
+  <NavLink to="/ourMenu" 
   className={({ isActive, isPending }) =>
     isPending ? "pending" : isActive ? "font-bold flex items-center gap-2  text-yellow-400  " : ""
   }
 >
-<BiSolidFoodMenu />OUR MENU
+OUR MENU 
          
   </NavLink>
   <NavLink to="/ourShop"
@@ -59,7 +53,7 @@ const Navbar = () => {
     isPending ? "pending" : isActive ? "font-bold flex items-center gap-2 text-yellow-400  " : ""
   }
 >
-  <MdOutlineRestaurant></MdOutlineRestaurant> OURSHOP
+   OURSHOP
          
   </NavLink>
   
@@ -67,13 +61,13 @@ const Navbar = () => {
   </>
     return (
         <div data-aos="fade-down">
-          <div className=" navbar fixed z-10 bg-[#8000806c] max-w-6xl mx-auto  font-[Inter]">
+          <div className=" navbar fixed z-10 bg-[#05050551] max-w-6xl mx-auto  font-[Inter]">
              <div className="flex-1">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </div>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 text-white bg-[#2600806c]  w-52">
+      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 text-white bg-[#05050551]  w-52">
         {navLinks}
       </ul>
     </div>
@@ -112,7 +106,7 @@ const Navbar = () => {
     isPending ? "pending" : isActive ? "font-bold   text-yellow-400  " : ""
   }
 >
-<HiOutlineLogout />SIGNOUT
+SIGNOUT
          
   </NavLink></> :<>
   <NavLink  to="/login"
@@ -120,7 +114,7 @@ const Navbar = () => {
     isPending ? "pending" : isActive ? "font-bold mr-5 text-yellow-400  " : ""
   }
 >
-<IoLogIn />SIGNIN
+SIGNIN
          
   </NavLink> 
 
@@ -144,7 +138,7 @@ const Navbar = () => {
      <div data-aos="fade-down"
      data-aos-easing="linear"
      data-aos-duration="2000">
-     <ul  tabIndex={0} className="menu menu-sm dropdown-content text-white mb-5  p-5 shadow bg-[#432c8f] rounded-box w-80 h-96">
+     <ul  tabIndex={0} className="menu menu-sm dropdown-content text-white mb-5  p-5 shadow bg-gradient-to-tr from-[#050505e4] to-[#460808e4]  rounded-box w-80 h-96">
       <div className="">
           <img  src={user?.photoURL} className="rounded-full w-28 mx-auto" />
         </div>
@@ -159,7 +153,7 @@ const Navbar = () => {
     isPending ? "pending" : isActive ? "font-bold   text-yellow-400  " : ""
   }
 >
-<HiOutlineLogout />SIGNOUT
+SIGNOUT
          
   </NavLink></> :<>
   <NavLink  to="/login"
@@ -167,7 +161,7 @@ const Navbar = () => {
     isPending ? "pending" : isActive ? "font-bold  text-yellow-400  " : ""
   }
 >
-<IoLogIn />SIGNIN
+SIGNIN
          
   </NavLink> 
 

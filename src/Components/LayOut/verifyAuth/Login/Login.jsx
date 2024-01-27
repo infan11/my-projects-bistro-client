@@ -136,22 +136,24 @@ const handleGithubUser = () => {
 }
   
     return (
-        <div className="hero min-h-screen">
-            <div className=" w-full max-w-sm shadow-2xl bg-white   p-5 rounded-md ">
+        <div data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000" className="hero min-h-screen ">
+            <div className=" w-full max-w-sm shadow-2xl   bg-gradient-to-tr  from-[#050505e4] to-[#081246e4]  p-5 rounded-md ">
       <form onSubmit={handleFormSubmit} >
       
         <div className="justify-center items-baseline flex">
-        <button onClick={handleAuthGoogle} className=" bg-white  p-2   text-3xl "> <FcGoogle /></button>
-        <button onClick={handleGithubUser} className="bg-black text-white text-3xl"><IoLogoGithub /></button>
+        <button onClick={handleAuthGoogle} className="   p-2   text-3xl mr-3  "> <FcGoogle /></button>
+        <button onClick={handleGithubUser} className="text-3xl"><IoLogoGithub /></button>
         </div>
         <div className="divider divider-primary">or</div>
-        <p className="text-black text-center font-bold font-mono ">You Have a Account ?  Now <Link className="text-xl text-green-600 " to={"/Login"}>SignUp</Link></p>
+        <p className="text-white text-center font-bold font-mono ">You Have a Account ?  Now <Link className="text-xl text-green-600 " to={"/register"}>SignUp</Link></p>
 
         <div className="form-control">
           <label className="label">
-            <span className="label-text text-black text-xl font-mono font-bold">Email</span>
+            <span className="label-text text-white text-xl font-mono font-bold">Email</span>
           </label>
-          <input type="email" name="email"  ref={emailRef} placeholder="Email" className="p-3 bg-white shadow-inner text-black font-bold font-mono" required />
+          <input type="email" name="email"  ref={emailRef} placeholder="Email" className="p-[3px] bg-transparent  shadow-2xl  text-white rounded-xl  font-bold font-mono" required />
         </div>
        
    
@@ -159,11 +161,11 @@ const handleGithubUser = () => {
       
         <div className="form-control">
           <label className="label">
-            <span className="label-text  text-black text-xl font-mono font-bold">Password</span>
+            <span className="label-text  text-white text-xl font-mono font-bold">Password</span>
           </label>
-          <input type="password" name="password" placeholder="password" className="p-3 bg-white shadow-inner text-black font-bold" required />
+          <input type="password" name="password" placeholder="password" className="p-[3px] bg-transparent  shadow-2xl  text-white rounded-xl  font-bold" required />
           <label className="label">
-            <a onClick={handleForgetPassword} href="#" className="label-text-alt link link-hover  text-black text-xl font-mono font-bold">Forgot password?</a>
+            <a onClick={handleForgetPassword} href="#" className="label-text-alt link link-hover  text-white text-xl font-mono font-bold">Forgot password?</a>
           </label>
         </div>
         <div className="form-control mt-6">
