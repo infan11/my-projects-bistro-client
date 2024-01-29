@@ -1,5 +1,13 @@
+import { useState } from "react";
 
 const Footer = () => {
+    const [email, setEmail] = useState('');
+
+    const handleSubscribe = () => {
+      const mailtoLink = `mailto:infanjiounrahman20606@gmail.com?subject=Subscribe&body=Please subscribe me to your newsletter.%0D%0A%0D%0AEmail: ${email}`;
+      window.location.href = mailtoLink;
+    };
+  
     return (
         <div>
             <footer className="footer p-10 bg-base-200 text-base-content">
@@ -24,9 +32,17 @@ const Footer = () => {
         <span className="label-text">Enter your email address</span>
       </label> 
       <div className="join">
-        <input type="text" placeholder="username@site.com" className="input input-bordered join-item" /> 
-        <button className="btn btn-primary join-item">Subscribe</button>
-      </div>
+      <input
+        type="text"
+        placeholder="username@site.com"
+        className="input input-bordered join-item"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <button className="btn btn-primary join-item" onClick={handleSubscribe}>
+        Subscribe
+      </button>
+    </div>
     </fieldset>
   </form>
 </footer>
