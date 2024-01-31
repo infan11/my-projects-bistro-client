@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+
 import SectionTitle from "../../../Shared/SectionTitle";
 
 import MenuOffer from "../MenuOffer/MenuOffer";
@@ -23,7 +23,7 @@ const TodayOffer = () => {
      data-aos-easing="linear"
      data-aos-duration="1500"
      data-aos-offset="300"
-     data-aos-easing="ease-in-sine" className="">
+      className="">
           <SectionTitle heading={"---Don't miss---"} subHeading={"TODAY'S OFFER"}></SectionTitle>
             
              

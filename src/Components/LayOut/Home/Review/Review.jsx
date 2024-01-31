@@ -6,7 +6,7 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { useEffect, useState } from 'react';
 
-import imageA from '../../../../../public/vite.svg'
+
 import { Rating } from '@mui/material';
 const Review = () => {
     const [reviews, setReviews] = useState([])
@@ -33,7 +33,7 @@ const Review = () => {
                     value={review.rating}
                     readOnly
                     />
-                        <img className=' mt-4' src={imageA} alt="" />
+                        
                         <p className='py-8 text-center'>{review.details}</p>
                         <p className='text-orange-400'>{review.name}</p>
                     </div>

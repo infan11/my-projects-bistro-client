@@ -63,13 +63,13 @@ const ContactMiddle = () => {
           <label className="label">
             <span className="label-text text-black font-bold">Name</span>
           </label>
-          <input type="text" placeholder="Name" className="input input-bordered text-white font-bold" required />
+          <input type="text" placeholder="Name" className="input input-bordered text-white bg-black font-bold" required />
         </div>
         <div className="form-control md:w-1/2">
           <label className="label">
             <span className="label-text text-black font-bold">Email</span>
           </label>
-          <input type="email" placeholder="Email" className="input input-bordered text-white font-bold" required />
+          <input type="email" placeholder="Email" className="input input-bordered bg-black text-white font-bold" required />
          
         </div>
         </div>
@@ -77,7 +77,7 @@ const ContactMiddle = () => {
           <label className="label">
             <span className="label-text text-black font-bold">Phone</span>
           </label>
-          <input type="phone" placeholder="Phone" className="input input-bordered text-white font-bold" required />
+          <input type="phone" placeholder="Phone" className="input input-bordered bg-black text-white font-bold" required />
          
         </div>
         <br />
@@ -85,9 +85,9 @@ const ContactMiddle = () => {
         <div>
 
     
-            <textarea className="w-full h-96 p-5 text-white " placeholder="What your message here ?" required></textarea>
+            <textarea className="w-full h-96 p-5 bg-black text-white " placeholder="What your message here ?" required></textarea>
         </div>
-        <button className="flex items-center gap-3 bg-gradient-to-tr  from-yellow-600 to-zinc-500  mx-auto p-3 text-white">Sen Message<FaTelegramPlane /></button>
+        <button className="flex font-bold items-center gap-3 bg-gradient-to-tr  from-yellow-600 to-zinc-500  mx-auto p-3 text-white">Sen Message<FaTelegramPlane /></button>
       </form>
          </div>
         </div>
