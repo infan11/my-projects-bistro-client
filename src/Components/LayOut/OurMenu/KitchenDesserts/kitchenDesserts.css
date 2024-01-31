@@ -2,3 +2,17 @@
     background-image: url("../../../../assets//chef-service.jpg");
     padding: 80px;
 }
+.bistroSalad {
+    background-image: url("../../../../assets/menu/salad-bg.jpg");
+    padding: 80px;
+}
+.bistroPizza {
+    background-image: url("../.././../../assets//menu/pizza-bg.jpg");
+    padding: 80px;
+}
+.bistroFeatured{
+    /* background-image: url("../../../../assets/home//featured.jpg"); */
+    background: linear-gradient(0deg, rgba(21, 21, 21, 0.70) 0%, rgba(21, 21, 21, 0.70) 100%), url("../../../../assets/home//featured.jpg") lightgray 50% / cover no-repeat;
+    background-repeat: no-repeat;
+  
+}

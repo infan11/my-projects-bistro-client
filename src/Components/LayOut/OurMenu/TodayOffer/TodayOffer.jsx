@@ -19,7 +19,9 @@ const TodayOffer = () => {
     const salad = menu.filter(item => item.category === "salad")
      return (
         <div>
-            <div   data-aos="fade-left"
+            <div   data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="1500"
      data-aos-offset="300"
      data-aos-easing="ease-in-sine" className="">
           <SectionTitle heading={"---Don't miss---"} subHeading={"TODAY'S OFFER"}></SectionTitle>
@@ -62,6 +64,7 @@ const TodayOffer = () => {
         <button  className='p-3 btn font-[Inter] bg-transparent border-b-4 rounded-xl border-[white] w-80 '>ORDER YOUR FAVOURITE FOOD</button>
 
         </div>
+       
         </div>
     );
 };
