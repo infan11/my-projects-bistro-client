@@ -1,10 +1,10 @@
 
 
-const MenuOffer = ({item}) => {
+const SaladOffer = ({item}) => {
     const   {name,recipe,image,category,price,}  = item;
-
     return (
-        <div  data-aos="zoom-out-right">
+        <div>
+            <div  data-aos="zoom-out-right">
            <div className="flex gap-4 mb-3 ">
              <img  className="bistroImage w-20  rounded-2xl" src={image} alt="" />
              <div>
@@ -17,7 +17,8 @@ const MenuOffer = ({item}) => {
              <p>{price}</p>
              </div>           
         </div>
+        </div>
     );
 };
 
-export default MenuOffer;
+export default SaladOffer;

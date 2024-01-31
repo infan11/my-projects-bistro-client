@@ -1,8 +1,6 @@
-
-
-const MenuOffer = ({item}) => {
-    const   {name,recipe,image,category,price,}  = item;
-
+import "./Desserts.css"
+const DessertMenu = ({ item }) => {
+    const {name,recipe,image,category,  price }= item;
     return (
         <div  data-aos="zoom-out-right">
            <div className="flex gap-4 mb-3 ">
@@ -20,4 +18,4 @@ const MenuOffer = ({item}) => {
     );
 };
 
-export default MenuOffer;
+export default DessertMenu;

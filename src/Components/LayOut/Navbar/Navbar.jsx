@@ -61,7 +61,7 @@ OUR MENU
   </>
     return (
         <div data-aos="fade-down">
-          <div className=" navbar fixed z-10 bg-[#05050551] max-w-6xl mx-auto  font-[Inter]">
+          <div className=" navbar fixed z-10 bg-[#05050551] md:max-w-7xl mx-auto  font-[Inter]">
              <div className="flex-1">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
