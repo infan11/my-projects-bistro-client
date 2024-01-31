@@ -4,3 +4,15 @@
     background-image: url("../../../../assets/chef-service.jpg");
     padding: 80px;
 }
+.bistroShop{
+    background-image: url("../../../../assets///shop/banner2.jpg");
+
+}
+.bistroA{
+    background: rgba(21, 21, 21, 0.60);
+
+
+}
+.bistroContact {
+    background-image: url("..//../../../assets//contact/banner.jpg");
+}
