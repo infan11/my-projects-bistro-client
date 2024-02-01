@@ -16,8 +16,8 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    const signUser = {email , password} 
-    console.log(signUser);
+    // const signUser = {email , password} 
+    // console.log(signUser);
     if(password.length < 6){
         Swal.fire({
             icon: "error",
@@ -59,6 +59,14 @@ const Login = () => {
             text: "Email And Password Incorrect",
             footer: '<a href="#"></a>'
           });
+          else if(error.code === "auth/network-request-failed"){
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Please Connect Internet",
+              footer: '<a href="#"></a>'
+            });
+          }
     })
 }
 const handleForgetPassword = () => {
@@ -77,10 +85,41 @@ const handleForgetPassword = () => {
     .then(result => {
         const forget = result
         console.log(forget)
-        Swal.fire("Please Check Your Email"); 
+      
+        let timerInterval;
+Swal.fire({
+  title: "Please Check Your Email",
+  html: "I will close in <b></b> milliseconds.",
+  timer: 2000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading();
+    const timer = Swal.getPopup().querySelector("b");
+    timerInterval = setInterval(() => {
+      timer.textContent = `${Swal.getTimerLeft()}`;
+    }, 100);
+  },
+  willClose: () => {
+    clearInterval(timerInterval);
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log("Please Check Your Email");
+  }
+});
+       
     })
     .catch(error =>{
-        console.log(error)
+        console.error(error)
+         if(error.code === "auth/network-request-failed"){
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Please Connect Internet",
+            footer: '<a href="#"></a>'
+          });
+        }
     })
 
 }
@@ -108,6 +147,17 @@ const handleAuthGoogle = () =>{
         });
         navigate(from , {replace : true})
     })
+    .catch(error => {
+      console.error(error)
+      if(error.code === "auth/internal-error"){
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Please Connect Internet",
+          footer: '<a href="#"></a>'
+        });
+      }
+    })
 }
 const handleGithubUser = () => {
     githubAuth()
@@ -132,6 +182,17 @@ const handleGithubUser = () => {
           }
         });
         navigate(from , {replace : true})
+    })
+    .catch(error => {
+      console.error(error)
+      if(error.code === "auth/internal-error"){
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Please Connect Internet",
+          footer: '<a href="#"></a>'
+        });
+      }
     })
 }
   

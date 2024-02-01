@@ -7,7 +7,7 @@ const PrivateRoute = ({children}) => {
  const {user,loading} = useContext(AuthContext);
  const location = useLocation();
  if(loading) {
-    return  <div className="flex min-h-screen mx-auto hero">
+    return  <div className="flex justify-center items-center min-h-screen">
         <Puff
         visible={true}
         height="80"

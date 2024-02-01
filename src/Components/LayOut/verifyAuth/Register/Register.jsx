@@ -17,8 +17,8 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    const signUser = {name , photo , email , password} 
-    console.log(signUser);
+    // const signUser = {name , photo , email , password} 
+    // console.log(signUser);
     if(password.length < 6){
         Swal.fire({
             icon: "error",
@@ -27,7 +27,7 @@ const Register = () => {
             footer: '<a href="#">Why do I have this issue?</a>'
           });
     } 
-    createUser(email, password)
+    createUser(email, password , name , photo)
     .then(result => {
       const createRegister = result.user;
       console.log(createRegister)
@@ -62,6 +62,14 @@ const Register = () => {
             footer: '<a href="#"></a>'
           });
     }
+    else if(error.code === "auth/network-request-failed"){
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please Connect Internet",
+        footer: '<a href="#"></a>'
+      });
+    }
   })
 }
 const handleAuthGoogle = () =>{
@@ -88,7 +96,17 @@ const handleAuthGoogle = () =>{
         });
         navigate(from , {replace : true})
     })
- 
+  .catch(error => {
+    console.error(error)
+    if(error.code === "auth/internal-error"){
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please Connect Internet",
+        footer: '<a href="#"></a>'
+      });
+    }
+  })
 }
 const handleGithubUser = () => {
     githubAuth()
@@ -113,6 +131,17 @@ const handleGithubUser = () => {
           }
         });
         navigate(from , {replace : true})
+    })
+    .catch(error => {
+      console.error(error)
+      if(error.code === "auth/internal-error"){
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Please Connect Internet",
+          footer: '<a href="#"></a>'
+        });
+      }
     })
     
 }

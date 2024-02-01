@@ -1,9 +1,11 @@
-import { useContext } from "react";
+import { useContext} from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import image from '../../../assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png'
+
 const Navbar = () => {
 
+  
   const {user , logout} = useContext(AuthContext);
   const handleLogout  = () => {
     logout() 
@@ -148,7 +150,9 @@ SIGNIN
         <div className="divider"></div>
         <li><a>{user?.displayName}</a></li>
         <div className="divider"></div>  
+        
         <li>
+
 {  user ? <><NavLink onClick={handleLogout}
   className={({ isActive, isPending }) =>
     isPending ? "pending" : isActive ? "font-bold   text-yellow-400  " : ""
@@ -175,7 +179,11 @@ SIGNIN
   
          
   </NavLink>
-  </>}</li>
+  </>}
+  </li>
+  <li>
+
+  </li>
       </ul>
      </div>
     </div>

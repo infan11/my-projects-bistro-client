@@ -87,7 +87,7 @@ const ContactMiddle = () => {
     
             <textarea className="w-full h-96 p-5 bg-black text-white " placeholder="What your message here ?" required></textarea>
         </div>
-        <button className="flex font-bold items-center gap-3 bg-gradient-to-tr  from-yellow-600 to-zinc-500  mx-auto p-3 text-white">Sen Message<FaTelegramPlane /></button>
+        <button className="flex  items-center gap-3 bg-gradient-to-tr  from-yellow-600 to-zinc-500  mx-auto p-3 text-white">Sen Message<FaTelegramPlane /></button>
       </form>
          </div>
         </div>
