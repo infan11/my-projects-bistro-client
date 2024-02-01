@@ -1,9 +1,32 @@
 import { HiMiniCurrencyDollar } from "react-icons/hi2";
+import UseAuth from "../../../../Hooks/UseAuth";
+import Swal from "sweetalert2";
+import {  useLocation, useNavigate } from "react-router-dom";
 
 const AllCardCategory = ({item}) => {
     const {name, recipe,image,category, price}   = item;
+    const {user} = UseAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
     const handelAddToCart = food => {
-      console.log(food);
+      if(user && user.email){
+        // to do : send cart item to database
+      }
+      else{
+        Swal.fire({
+          title: "Please Login ",
+          text: "You Cannot Entry!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, SignIn"
+        }).then((result) => {
+          if (result.isConfirmed) {
+          navigate("/login" , {state : {from : location}})
+          }
+        });
+      }
     }
     return (
         <div>

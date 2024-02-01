@@ -21,7 +21,7 @@ import PrivateRoute from "./PrivateRoutes/PrivateRoute";
       children: [
         {
             path: "/",
-            element:<PrivateRoute> <Home></Home></PrivateRoute>
+            element:<Home></Home>
         },
         {
            path: "/login",
