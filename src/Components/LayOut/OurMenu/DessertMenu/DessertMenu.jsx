@@ -2,18 +2,19 @@ import "./Desserts.css"
 const DessertMenu = ({ item }) => {
     const {name,recipe,image,category,  price }= item;
     return (
-        <div  data-aos="zoom-out-right">
-           <div className="flex gap-4 mb-3 ">
-             <img  className="bistroImage w-20  rounded-2xl" src={image} alt="" />
+        <div>
+           <div className="flex mt-2 gap-2 " >
+              <img className="bistroImage   w-20  " src={image} alt="" />
              <div>
+               <div>
                 <p>{name}</p>
-                
-                <p>{recipe}</p>
-                
+                <p>{category}</p>
+               </div>
+              <p>{recipe}</p>
+              <p>{price}</p>
              </div>
-             <p>{category}</p>
-             <p>{price}</p>
-             </div>           
+            
+             </div>
         </div>
     );
 };

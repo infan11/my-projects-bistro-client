@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const PizzaBanner = () => {
     return (
@@ -6,8 +7,7 @@ const PizzaBanner = () => {
             <div data-aos="flip-left"
      data-aos-easing="ease-out-cubic"
      data-aos-duration="2000" className=' text-center mt-5'>
-            <button  className='p-3 btn font-[Inter] bg-transparent border-b-4 rounded-xl border-[white] w-80 '>ORDER YOUR FAVOURITE FOOD</button>
-
+    <Link to={"/ourShop"}><button  className='p-3 btn font-[Inter] bg-transparent border-b-4 rounded-xl border-[white] w-80 '>ORDER YOUR FAVOURITE FOOD</button></Link>
             </div>
              <div data-aos="zoom-in"  className="bistroPizza bg-fixed mb-10 mt-10 ">
     <div className=" text-white bg-[#060606a3] rounded-lg p-24 text-center max-w-screen-md mx-auto ">

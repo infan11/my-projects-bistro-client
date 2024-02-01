@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const CallUs = () => {
     return (
@@ -5,7 +6,7 @@ const CallUs = () => {
             <div data-aos="flip-left"
             data-aos-easing="ease-out-cubic"
             data-aos-duration="2000" className=' text-center '>
-        <button  className='p-3 btn font-[Inter] bg-transparent border-b-4 rounded-xl border-[white] w-80 '>VIEW ALL MENU</button>
+      <Link to={"/ourMenu"}>  <button   className='p-3 btn font-[Inter] bg-transparent border-b-4 rounded-xl border-[white] w-80 '>VIEW ALL MENU</button></Link>
 
         </div>
         <div className="bg-black w-[500px] p-7 mx-auto mt-4  text-white rounded-md">

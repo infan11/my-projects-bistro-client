@@ -25,7 +25,7 @@ const OrderOnline = () => {
      data-aos-easing="linear"
      data-aos-duration="1500"
      data-aos-offset="300"
-     data-aos-easing="ease-in-sine" className="">
+     >
           <SectionTitle heading={"---From 11:00am to 10:00pm---"} subHeading={"ORDER ONLINE"}></SectionTitle>
 
           </div>

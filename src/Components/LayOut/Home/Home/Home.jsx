@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Banner from "../Banner/Banner";
 import CallUs from "../CallUs/CallUs";
 import CheckOutMenu from "../CheckOutMenu/CheckOutMenu";
@@ -10,6 +11,9 @@ import Featured from "./Featured/Featured";
 const Home = () => {
     return (
         <div className="min-h-screen">
+               <Helmet>
+        <title className="">Bistro Boss | Home</title>
+      </Helmet>
         <Banner></Banner>
         <OrderOnline></OrderOnline>
         <Kitchen></Kitchen>

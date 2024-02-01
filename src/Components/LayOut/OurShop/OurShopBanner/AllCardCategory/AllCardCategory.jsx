@@ -2,6 +2,9 @@ import { HiMiniCurrencyDollar } from "react-icons/hi2";
 
 const AllCardCategory = ({item}) => {
     const {name, recipe,image,category, price}   = item;
+    const handelAddToCart = food => {
+      console.log(food);
+    }
     return (
         <div>
              <div   data-aos="zoom-in" className=" w-72  shadow-xl">
@@ -17,7 +20,7 @@ const AllCardCategory = ({item}) => {
     <div data-aos="flip-left"
  data-aos-easing="ease-out-cubic"
  data-aos-duration="2000" className=' text-center  mt-3 mb-6'>
-        <button  className='p-2 text-yellow-300 btn font-[Inter] bg-transparent border-b-4 rounded-xl border-[white] w-60 '>Add to cart</button>
+        <button onClick={() =>  handelAddToCart(item)} className='p-2 text-yellow-300 btn font-[Inter] bg-transparent border-b-4 rounded-xl border-[white] w-60 '>Add to cart</button>
 
         </div>
     </div>

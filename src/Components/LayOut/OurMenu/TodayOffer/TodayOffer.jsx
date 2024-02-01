@@ -10,6 +10,8 @@ import PizzaOffer from "../PizzaOffer/PizzaOffer";
 import UseMenu from "../../../Hooks/UseMenu";
 import SaladBanner from "../SaladOffer/SaladBanner";
 import SaladOffer from "../SaladOffer/SaladOffer/SaladOffer";
+import { Link } from "react-router-dom";
+
 const TodayOffer = () => {
     const [menu] = UseMenu();
     const popular = menu.filter(item => item.category === "popular")
@@ -61,7 +63,9 @@ const TodayOffer = () => {
           <div data-aos="flip-left"
  data-aos-easing="ease-out-cubic"
  data-aos-duration="2000" className=' text-center  mt-3 mb-6'>
-        <button  className='p-3 btn font-[Inter] bg-transparent border-b-4 rounded-xl border-[white] w-80 '>ORDER YOUR FAVOURITE FOOD</button>
+    
+      <Link to={"/ourShop"}> <button  className='p-3 btn font-[Inter] bg-transparent border-b-4 rounded-xl border-[white] w-80 '>ORDER YOUR FAVOURITE FOOD</button></Link>
+      
 
         </div>
        
