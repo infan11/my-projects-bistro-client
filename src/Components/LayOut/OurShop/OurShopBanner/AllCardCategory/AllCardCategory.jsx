@@ -2,15 +2,56 @@ import { HiMiniCurrencyDollar } from "react-icons/hi2";
 import UseAuth from "../../../../Hooks/UseAuth";
 import Swal from "sweetalert2";
 import {  useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const AllCardCategory = ({item}) => {
-    const {name, recipe,image,category, price}   = item;
+    const {name, recipe,image,category, price , _id}   = item;
     const {user} = UseAuth();
     const navigate = useNavigate();
     const location = useLocation();
     const handelAddToCart = food => {
       if(user && user.email){
         // to do : send cart item to database
+        const cartItem = {
+        menuId: _id,
+        emial : user.email,
+        name ,
+        image , 
+        price 
+        }
+        // axios and fetch  same category
+        axios.post("http://localhost:5000/carts" , cartItem)
+        .then(res => {
+        console.log(res.data)
+        if(res.data.insertedId){
+          Swal.fire({
+            title: `${name}  Successfully Order`,
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1500,
+            showClass: {
+              popup: `
+                animate__animated
+                animate__fadeInUp
+                animate__faster
+              `
+            },
+            hideClass: {
+              popup: `
+                animate__animated
+                animate__fadeOutDown
+                animate__faster
+              `
+            },
+
+            customClass: {
+              title: 'custom-swal-title', // Add a custom class to the title
+            }
+          });
+          
+        }
+        
+      })
       }
       else{
         Swal.fire({

@@ -11,7 +11,7 @@ import { Rating } from '@mui/material';
 const Review = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-         fetch("review.json")
+         fetch("http://localhost:5000/review")
          .then(res => res.json())
          .then(data => setReviews(data))
     },[])
@@ -22,7 +22,7 @@ const Review = () => {
             <h2 className='font-bold text-2xl md:w-4/12 mx-auto border-y-2 mb-8 ' >TESTIMONIALS</h2>
         </div>
         <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-
+        
             {
                 reviews.map(review => <SwiperSlide key={review._id}>
       

@@ -9,7 +9,7 @@ import { auth } from "../../../../Firebase/firebase.config";
 const Login = () => {
     const {signInUser ,  googleAuth, githubAuth,} = useContext(AuthContext)
     const navigate = useNavigate();
-    const from = location.state?.from?.pathname || "/ourShop" || "/dashBoard" || "/ourMenu" || "/" ;
+    const from = location.state?.from?.pathname || "/ourShop" || "/dashBoard" || "/ourMenu" ;
     const emailRef = useRef(null);
   const handleFormSubmit = event =>{
     event.preventDefault();

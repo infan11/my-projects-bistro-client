@@ -16,3 +16,8 @@
 .bistroContact {
     background-image: url("..//../../../assets//contact/banner.jpg");
 }
+/* Add your custom styles */
+.custom-swal-title {
+    color: green;
+    /* Add other styles as needed */
+  }
