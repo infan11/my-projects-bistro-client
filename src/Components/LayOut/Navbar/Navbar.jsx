@@ -2,11 +2,13 @@ import { useContext} from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import image from '../../../assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png'
+import useCart from "../../Hooks/useCart";
 
 const Navbar = () => {
 
-  
+ 
   const {user , logout} = useContext(AuthContext);
+  const [cart ] = useCart();
   const handleLogout  = () => {
     logout() 
     .then(() => {} )
@@ -90,12 +92,12 @@ OUR MENU
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
         <div className="indicator">
        <img src={image} alt="" />
-          <span className="badge badge-sm indicator-item">8</span>
+          <span className="badge badge-sm indicator-item text-white" >{cart.length}</span>
         </div>
       </div>
       <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
         <div className="card-body">
-          <span className="font-bold text-lg">8 Items</span>
+          <span className="font-bold text-lg">{cart.length} Items</span>
           <span className="text-info">Subtotal: $999</span>
           <div className="card-actions">
             <button className="btn btn-primary btn-block">View cart</button>

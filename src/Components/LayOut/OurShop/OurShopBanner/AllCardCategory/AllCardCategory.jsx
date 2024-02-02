@@ -2,16 +2,21 @@ import { HiMiniCurrencyDollar } from "react-icons/hi2";
 import UseAuth from "../../../../Hooks/UseAuth";
 import Swal from "sweetalert2";
 import {  useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
+import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
+import useCart from "../../../../Hooks/useCart";
+
 
 const AllCardCategory = ({item}) => {
     const {name, recipe,image,category, price , _id}   = item;
     const {user} = UseAuth();
     const navigate = useNavigate();
     const location = useLocation();
-    const handelAddToCart = food => {
-      if(user && user.email){
-        // to do : send cart item to database
+    const axiosSecure = useAxiosSecure()
+    const {refetch} = useCart();
+    const handelAddToCart = () => {
+      if(user && user.email) {
+        // console.log(user.email , food);
+        // send cart item to database
         const cartItem = {
         menuId: _id,
         emial : user.email,
@@ -20,7 +25,7 @@ const AllCardCategory = ({item}) => {
         price 
         }
         // axios and fetch  same category
-        axios.post("http://localhost:5000/carts" , cartItem)
+        axiosSecure.post("/carts" , cartItem)
         .then(res => {
         console.log(res.data)
         if(res.data.insertedId){
@@ -48,10 +53,12 @@ const AllCardCategory = ({item}) => {
               title: 'custom-swal-title', // Add a custom class to the title
             }
           });
+
           
         }
-        
+       
       })
+      refetch();
       }
       else{
         Swal.fire({
@@ -84,7 +91,7 @@ const AllCardCategory = ({item}) => {
     <div data-aos="flip-left"
  data-aos-easing="ease-out-cubic"
  data-aos-duration="2000" className=' text-center  mt-3 mb-6'>
-        <button onClick={() =>  handelAddToCart(item)} className='p-2 text-yellow-300 btn font-[Inter] bg-transparent border-b-4 rounded-xl border-[white] w-60 '>Add to cart</button>
+        <button onClick={handelAddToCart} className='p-2 text-yellow-300 btn font-[Inter] bg-transparent border-b-4 rounded-xl border-[white] w-60 '>Add to cart</button>
 
         </div>
     </div>
