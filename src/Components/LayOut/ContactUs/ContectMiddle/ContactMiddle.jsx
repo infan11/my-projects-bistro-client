@@ -15,7 +15,7 @@ const ContactMiddle = () => {
         </div>
         <br />
         <div>
-            <div className="grid md:grid-cols-3">
+            <div className="grid md:grid-cols-3 gap-7">
                <div className="w-80 mx-auto  ">
                 <div className="border-4">
                   <header className="bg-orange-400 text-white p-3 text-2xl "> <p className="ml-32">  <MdOutlineWifiCalling3 /></p></header>

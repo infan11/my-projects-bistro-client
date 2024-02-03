@@ -2,7 +2,7 @@ import SectionTitle from "../../../../Shared/SectionTitle";
 import image from '../../../.././../assets/home/featured.jpg'
 const Featured = () => {
     return (
-        <div data-aos="zoom-down" className="bistroFeatured   bg-fixed p-36 ">
+        <div data-aos="zoom-down" className="bistroFeatured   bg-fixed p-36  hidden lg:block">
             <br />
             <div   data-aos="fade-down"
      data-aos-easing="linear"

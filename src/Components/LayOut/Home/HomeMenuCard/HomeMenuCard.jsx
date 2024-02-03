@@ -14,7 +14,7 @@ const HomeMenuCard = () => {
           <SectionTitle heading={"---Should Try---"} subHeading={"CHEF RECOMMENDS"}></SectionTitle>
 
           </div>
-            <div className="md:max-w-7xl    grid md:grid-cols-4 gap-2">
+            <div className="md:max-w-7xl    grid md:grid-cols-4 ml-9 gap-2">
             <div   data-aos="zoom-in" className=" w-72  shadow-xl">
   <figure className="">
     <img src={image} alt="unavilable " className=""  />

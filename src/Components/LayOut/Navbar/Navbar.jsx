@@ -1,5 +1,5 @@
 import { useContext} from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import image from '../../../assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png'
 import useCart from "../../Hooks/useCart";
@@ -63,6 +63,7 @@ OUR MENU
   
   
   </>
+  const totalPrice = cart.reduce((total, item) => total + item.price , 0)
     return (
         <div data-aos="fade-down">
           <div className=" navbar fixed z-10 bg-[#05050551] md:max-w-7xl mx-auto  font-[Inter]">
@@ -77,7 +78,7 @@ OUR MENU
       </ul>
     </div>
 
-    <a href="/" className=" text-white text-xl font-[Cinzel]" >BISTRO BOSS <br />
+    <a href="/" className=" text-white text-xl font-[Cinzel] hidden lg:block  " >BISTRO BOSS <br />
     <p className="uppercase">R e s t a u r a n t</p>
     </a>
 
@@ -95,12 +96,12 @@ OUR MENU
           <span className="badge badge-sm indicator-item text-white" >{cart.length}</span>
         </div>
       </div>
-      <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+      <div data-aos="fade-down" tabIndex={0} className="mt-3 z-[1]  rounded dropdown-content w-52 bg-[black] shadow">
         <div className="card-body">
-          <span className="font-bold text-lg">{cart.length} Items</span>
-          <span className="text-info">Subtotal: $999</span>
+          <span className="font-bold text-lg font-mono">{cart.length} Items</span>
+          <span className="text-info font-bold font-mono">Subtotal: ${totalPrice}</span>
           <div className="card-actions">
-            <button className="btn btn-primary btn-block">View cart</button>
+           <Link to={"/dashboard/cart"}> <button className="btn btn-outline font-mono btn-block">My Order</button></Link>
           </div>
         </div>
       </div>

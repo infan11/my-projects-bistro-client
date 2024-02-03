@@ -7,19 +7,19 @@ import useCart from "../../../../Hooks/useCart";
 
 
 const AllCardCategory = ({item}) => {
-    const {name, recipe,image,category, price , _id}   = item;
+    const {name, recipe,image,category, price , _id}   = item ;
     const {user} = UseAuth();
     const navigate = useNavigate();
     const location = useLocation();
     const axiosSecure = useAxiosSecure()
-    const {refetch} = useCart();
+    const [ , refetch] = useCart();
     const handelAddToCart = () => {
       if(user && user.email) {
         // console.log(user.email , food);
         // send cart item to database
         const cartItem = {
         menuId: _id,
-        emial : user.email,
+        email : user.email,
         name ,
         image , 
         price 
@@ -58,7 +58,7 @@ const AllCardCategory = ({item}) => {
         }
        
       })
-      refetch();
+    refetch()
       }
       else{
         Swal.fire({

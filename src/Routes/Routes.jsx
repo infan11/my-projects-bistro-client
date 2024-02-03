@@ -11,6 +11,7 @@ import OurShop from "../Components/LayOut/OurShop/OurShop";
 import Login from "../Components/LayOut/verifyAuth/Login/Login";
 import Register from "../Components/LayOut/verifyAuth/Register/Register";
 import PrivateRoute from "./PrivateRoutes/PrivateRoute";
+import Cart from "../Components/LayOut/DashBoard/Cart/Cart";
 
 
  export const router = createBrowserRouter([
@@ -35,10 +36,7 @@ import PrivateRoute from "./PrivateRoutes/PrivateRoute";
           path:"/contactUs",
           element:<Contactus></Contactus>
         },
-        {
-          path:"/dashboard",
-          element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>
-        },
+        
         {
          path:"/ourMenu",
          element: <OurMenu></OurMenu>
@@ -46,6 +44,17 @@ import PrivateRoute from "./PrivateRoutes/PrivateRoute";
         {
           path:"/ourShop",
           element: <OurShop></OurShop>
+        }
+      ]
+      
+    },
+    {
+      path:"/dashboard",
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      children : [
+        {
+          path: "/dashboard/cart",
+          element: <Cart></Cart>
         }
       ]
     },

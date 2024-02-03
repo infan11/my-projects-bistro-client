@@ -10,7 +10,7 @@ const SaladBanner = () => {
           <Link to={"/ourShop"}><button  className='p-3 btn font-[Inter] bg-transparent border-b-4 rounded-xl border-[white] w-80 '>ORDER YOUR FAVOURITE FOOD</button></Link>
 
         </div>
-         <div data-aos="zoom-in"  className="bistroSalad  bg-fixed mb-10 mt-10 ">
+         <div data-aos="zoom-in"  className="bistroSalad  hidden lg:block  bg-fixed mb-10 mt-10 ">
 <div className=" text-white bg-[#060606a3] rounded-lg p-24 text-center max-w-screen-md mx-auto ">
     <h2 className="font-bold font-[Cinzel] text-5xl ">SALADS</h2>
     <br />
