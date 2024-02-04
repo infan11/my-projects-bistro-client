@@ -4,12 +4,14 @@ import { FcGoogle } from "react-icons/fc";
 import { IoLogoGithub } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import useCart from "../../../Hooks/useCart";
 const Register = () => {
-    const {createUser ,  googleAuth, githubAuth,} = useContext(AuthContext)
+    const {createUser , updateUserProfile,  googleAuth, githubAuth,} = useContext(AuthContext)
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || "/"  ;
+    const axiosPublic  = useAxiosSecure();
   const handleFormSubmit = event =>{
     event.preventDefault();
     const form = event.target;
@@ -27,29 +29,47 @@ const Register = () => {
             footer: '<a href="#">Why do I have this issue?</a>'
           });
     } 
-    createUser(email, password , name , photo)
+   
+      createUser(email, password , name , photo)
     .then(result => {
       const createRegister = result.user;
       console.log(createRegister)
-      Swal.fire({
-        title: "Successfully Register",
-        showClass: {
-          popup: `
-            animate__animated
-            animate__fadeInUp
-            animate__faster
-          `
-        },
-        hideClass: {
-          popup: `
-            animate__animated
-            animate__fadeOutDown
-            animate__faster
-          `
+      updateUserProfile(name , photo)
+      .then(() => {
+        const userInfo = {
+          name: name ,
+          email : email
         }
-      });
+        axiosPublic.post("/users" , userInfo)
+        .then(res => {
+          if(res.data.insertedId){
+            console.log("send to database ");
       
+        form.reset();
+        Swal.fire({
+          title: "Successfully Register",
+          showClass: {
+            popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `
+          },
+          hideClass: {
+            popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `
+          }
+        });
+      }
+          
+    })
+      })
+     
         navigate(from , {replace : true})
+  
     })
 
   .catch(error => {
@@ -71,29 +91,41 @@ const Register = () => {
       });
     }
   })
+    
 }
 const handleAuthGoogle = () =>{
     googleAuth()
     .then(result => {
         const googleUser = result.user;
         console.log(googleUser)
-        Swal.fire({
-          title: "Successfully Google Register",
-          showClass: {
-            popup: `
-              animate__animated
-              animate__fadeInUp
-              animate__faster
-            `
-          },
-          hideClass: {
-            popup: `
-              animate__animated
-              animate__fadeOutDown
-              animate__faster
-            `
+        const userItem = {
+          email : result.user?.email,
+          name : result.user?.displayName,
+        }
+        axiosPublic.post("/users" , userItem)
+        .then(res => {
+          if(res.data){
+            Swal.fire({
+              title: "Successfully Google Register",
+              showClass: {
+                popup: `
+                  animate__animated
+                  animate__fadeInUp
+                  animate__faster
+                `
+              },
+              hideClass: {
+                popup: `
+                  animate__animated
+                  animate__fadeOutDown
+                  animate__faster
+                `
+              }
+            });
           }
-        });
+         
+        })
+       
         navigate(from , {replace : true})
     })
   .catch(error => {

@@ -12,6 +12,7 @@ import Login from "../Components/LayOut/verifyAuth/Login/Login";
 import Register from "../Components/LayOut/verifyAuth/Register/Register";
 import PrivateRoute from "./PrivateRoutes/PrivateRoute";
 import Cart from "../Components/LayOut/DashBoard/Cart/Cart";
+import AllUsers from "../Components/LayOut/DashBoard/Admin/AllUsers/AllUsers";
 
 
  export const router = createBrowserRouter([
@@ -55,6 +56,11 @@ import Cart from "../Components/LayOut/DashBoard/Cart/Cart";
         {
           path: "/dashboard/cart",
           element: <Cart></Cart>
+        },
+        // admin 
+        {
+          path: "/dashboard/users",
+          element :<AllUsers></AllUsers>
         }
       ]
     },

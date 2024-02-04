@@ -107,7 +107,11 @@ OUR MENU
       </div>
     </div>
 
-{  user ? <><NavLink onClick={handleLogout}
+
+{  user ? 
+//  <span>{user?.displayName}</span> : 
+<><NavLink onClick={handleLogout}
+
   className={({ isActive, isPending }) =>
     isPending ? "pending" : isActive ? "font-bold   text-yellow-400  " : ""
   }
