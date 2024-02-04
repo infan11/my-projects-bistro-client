@@ -1,8 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import { FaAd, FaHome, FaSearch, FaShoppingCart } from "react-icons/fa";
 import { FaBook, FaCalendar, FaEnvelope, FaList, FaUsers, FaUtensils } from "react-icons/fa6";
+import { QueryClient, QueryClientProvider } from "react-query";
 import { NavLink, Outlet } from "react-router-dom";
-import Cart from "./Cart/Cart";
+
 
 const Dashboard = () => {
   const isAdmin = true ;
@@ -50,7 +51,7 @@ const Dashboard = () => {
           </li>
           <li>
             <NavLink  className={"hover:bg-slate-950"}  to="/dashboard/cart">
-
+              
               <FaShoppingCart></FaShoppingCart>
              </NavLink>
           </li>
@@ -85,10 +86,13 @@ const Dashboard = () => {
     </li>
   </>
   return (
+    <QueryClientProvider client={new QueryClient()}>
     <div>
       <Helmet>
         <title className="">Bistro Boss | Dashboard</title>
       </Helmet>
+      <div>
+      
       <div className="md:max-w-7xl mx-auto" >
         <div className="drawer">
           <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -108,8 +112,8 @@ const Dashboard = () => {
               </div>
             </div>
             {/* Page content here */}
-            <Cart></Cart>
-            <Outlet></Outlet>
+         <Outlet></Outlet>
+           
           </div>
           <div className="drawer-side">
             <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
@@ -123,6 +127,8 @@ const Dashboard = () => {
       </div>
 
     </div>
+    </div>
+  </QueryClientProvider>
   );
 };
 
