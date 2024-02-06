@@ -10,7 +10,11 @@ const AllUsers = () => {
     const { refetch,data : users = []} = useQuery({
         queryKey: ["users"],
         queryFn: async () => {
-            const res = await axiosSecure.get("/users")
+            const res = await axiosSecure.get("/users" , {        
+              headers : {
+              authorization :  `Bearer ${localStorage.getItem("Access-token")}` 
+              }
+            } )
             return res.data;
         }
     })
@@ -64,7 +68,7 @@ const AllUsers = () => {
               if(res.data.deletedCount > 0){
                 refetch();
                      Swal.fire({
-                title: "Deleted!",
+                title: "Deleted!",    
                 text: "Your file has been deleted.",
                 icon: "success"
               });
