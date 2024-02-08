@@ -11,7 +11,7 @@ import { Rating } from '@mui/material';
 const Review = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-         fetch("https://bistro-boss-server-projects-aroi6m9ee-infan11s-projects.vercel.app/review")
+         fetch("https://bistro-boss-server-projects.vercel.app/review")
          .then(res => res.json())
          .then(data => setReviews(data))
     },[])
