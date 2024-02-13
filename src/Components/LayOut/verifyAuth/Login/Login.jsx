@@ -200,7 +200,7 @@ const handleGithubUser = () => {
         <div data-aos="flip-left"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="2000" className="hero min-h-screen ">
-            <div className=" w-full max-w-sm shadow-2xl   bg-gradient-to-tr  from-[#050505e4] to-[#081246e4]  p-5 rounded-md ">
+            <div className=" indexto w-full max-w-sm shadow-2xl   bg-gradient-to-tr  from-[#050505e4] to-[#081246e4]  p-5 ">
       <form onSubmit={handleFormSubmit} >
       
         <div className="justify-center items-baseline flex">

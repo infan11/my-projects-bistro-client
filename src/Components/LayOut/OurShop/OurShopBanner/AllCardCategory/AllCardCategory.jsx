@@ -78,9 +78,9 @@ const AllCardCategory = ({item}) => {
     }
     return (
         <div>
-             <div   data-aos="zoom-in" className=" w-72  shadow-xl">
+             <div   data-aos="zoom-in" className=" w-72  shadow-xl ">
   <figure className="">
-    <img src={image} alt="unavilable " className="relative"  />
+  <img src={image} alt="available" className=" relative hover:zoom-125 transition-transform duration-300 ease-in-out" />
     <p className="absolute flex items-center bg-[#0e0918eb] text-white font-bold top-2 ml-52 bg- p-2 rounded-lg"><HiMiniCurrencyDollar />{price}</p>
   </figure>
   <div className="card-body items-center text-center">
@@ -97,6 +97,8 @@ const AllCardCategory = ({item}) => {
     </div>
   </div>
 </div>
+<br />
+
         </div>
     );
 };

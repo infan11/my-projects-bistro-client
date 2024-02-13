@@ -4,7 +4,7 @@ import ShopCard from "./ShopCard/ShopCard";
 
 const OurShop = () => {
     return (
-        <div>
+        <div className="">
              <Helmet>
         <title className="">Bistro Boss | OurShop</title>
       </Helmet>

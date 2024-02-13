@@ -66,7 +66,7 @@ OUR MENU
   const totalPrice = cart.reduce((total, item) => total + item.price , 0)
     return (
         <div data-aos="fade-down">
-          <div className=" navbar fixed z-10 bg-[#05050551] md:max-w-7xl mx-auto  font-[Inter]">
+          <div className=" navbar fixed z-10 bg-[#05050551] md:max-w-7xl  font-[Inter]">
              <div className="flex-1">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -78,13 +78,13 @@ OUR MENU
       </ul>
     </div>
 
-    <a href="/" className=" text-white text-xl font-[Cinzel] hidden lg:block  " >BISTRO BOSS <br />
+    <a href="/" className=" text-white text-xs font-[Cinzel] hidden lg:block  " >BISTRO BOSS <br />
     <p className="uppercase">R e s t a u r a n t</p>
     </a>
 
   </div>
   <div className="navbar-center  hidden lg:flex">
-    <ul className="menu menu-horizontal gap-10   text-white font-bold ">
+    <ul className="menu menu-horizontal gap-5  text-white font-bold ">
       {navLinks}
     </ul>
   </div>
@@ -93,13 +93,13 @@ OUR MENU
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
         <div className="indicator">
        <img src={image} alt="" />
-          <span className="badge badge-sm indicator-item text-white" >{cart.length}</span>
+          <span className="badge badge-sm indicator-item font-mono font-bold" >{cart.length}</span>
         </div>
       </div>
       <div data-aos="fade-down" tabIndex={0} className="mt-3 z-[1]  rounded dropdown-content w-52 bg-[black] shadow">
         <div className="card-body">
-          <span className="font-bold text-lg font-mono">{cart.length} Items</span>
-          <span className="text-info font-bold font-mono">Subtotal: ${totalPrice}</span>
+          <span className="font-bold font-mono">{cart.length} Items</span>
+          <span className=" font-bold font-mono">Subtotal: ${totalPrice}</span>
           <div className="card-actions">
            <Link to={"/dashboard/cart"}> <button className="btn btn-outline font-mono btn-block">My Order</button></Link>
           </div>

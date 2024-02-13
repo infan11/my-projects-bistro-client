@@ -52,11 +52,11 @@ import AddItems from "../Components/LayOut/DashBoard/Admin/AddItems/AddItems";
     },
     {
       path:"/dashboard",
-      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      element:<Dashboard></Dashboard>,
       children : [
         {
           path: "/dashboard/cart",
-          element: <Cart></Cart>
+          element:<Cart></Cart>
         },
         // admin 
         {
