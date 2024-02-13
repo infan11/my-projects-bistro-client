@@ -1,9 +1,9 @@
   import { Helmet } from "react-helmet-async";
   import { FaAd, FaHome, FaSearch, FaShoppingCart } from "react-icons/fa";
-  import { FaBook, FaCalendar, FaEnvelope, FaList,  FaUsers, FaUtensils } from "react-icons/fa6";
+  import { FaBook, FaCalendar, FaEnvelope, FaList,  FaPhone,  FaUsers, FaUtensils } from "react-icons/fa6";
   import { QueryClient, QueryClientProvider } from "react-query";
   const queryClient = new QueryClient();
-  import { NavLink, Outlet } from "react-router-dom";
+  import { Link, NavLink, Outlet } from "react-router-dom";
   import useAdmin from "../../Hooks/useAdmin";
 
 
@@ -29,6 +29,11 @@ s
             <NavLink  className={"hover:bg-slate-950"}  to="/dashboard/manageItems">
               <FaList></FaList>
               Manage Items</NavLink>
+          </li>
+          <li>
+            <NavLink  className={"hover:bg-slate-950"}  to="/dashboard/contactInfo">
+             <FaPhone></FaPhone>
+            ContactInfo</NavLink>
           </li>
           <li>
             <NavLink  className={"hover:bg-slate-950"} to="/dashboard/bookings">
@@ -108,7 +113,7 @@ s
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                   </label>
                 </div>
-                <div className="flex-1 px-2 mx-2">Dashboard</div>
+               <Link to={"/dashboard/cart"}> <div className="flex-1 px-2 mx-2">Dashboard</div></Link>
                 <div className="navbar-center  hidden lg:flex">
                   <ul className="menu menu-horizontal gap-2   text-white font-bold ">
                     {navLinks}
@@ -116,6 +121,7 @@ s
                 </div>
               </div>
               {/* Page content here */}
+              
           <Outlet></Outlet>
             
             </div>

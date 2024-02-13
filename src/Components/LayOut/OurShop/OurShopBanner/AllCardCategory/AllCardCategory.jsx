@@ -82,7 +82,7 @@ const AllCardCategory = ({item}) => {
   <figure className="">
   <img src={image} alt="available" className=" relative hover:zoom-125 transition-transform duration-300 ease-in-out" />
     <p className="absolute flex items-center bg-[#0e0918eb] text-white font-bold top-2 ml-52 bg- p-2 rounded-lg"><HiMiniCurrencyDollar />{price}</p>
-  </figure>
+  </figure>1
   <div className="card-body items-center text-center">
     <h2 className="card-title ">{name}</h2>
     <p className="text-xs ">{recipe}</p>

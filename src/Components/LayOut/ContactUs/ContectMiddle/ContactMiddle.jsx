@@ -3,7 +3,83 @@ import { MdOutlineWifiCalling3 } from "react-icons/md";
 import { IoLocationSharp } from "react-icons/io5";
 import { FaClockRotateLeft } from "react-icons/fa6";
 import { FaTelegramPlane } from "react-icons/fa";
-const ContactMiddle = () => {
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+
+const ContactMiddle = () => { 
+  const axiosSecure = useAxiosSecure();
+  const hanldeSubmit = event=> {
+     event.preventDefault();
+     const form = event.target;
+     const name = form.name.value;
+     const email = form.email.value;
+     const message = form.message.value;
+     const phone = form.phone.value;
+     const dataCon = {name , email , message, phone}
+     console.log(dataCon);
+  //  fetch("http://localhost:5000/contacts" , {
+  //   method:"POST",
+  //   headers:{ "content-type" :  "application/json"
+  // }, 
+  // body:JSON.stringify(dataCon)
+  //  })
+   
+  //  .then(res => res.json())
+  //  .then(data => {
+  //   console.log(data);
+  //   if(data.insertedId){
+  //     Swal.fire({
+  //       title: ` Thank You for your Feedback .  ${name} `,
+  //       showClass: {
+  //         popup: `
+  //           animate__animated
+  //           animate__fadeInUp
+  //           animate__faster
+  //         `
+  //       },
+  //       hideClass: {
+  //         popup: `
+  //           animate__animated
+  //           animate__fadeOutDown
+  //           animate__faster
+  //         `
+  //       }
+  //     });
+  //   }
+  //  })
+    axiosSecure.post("/contacts" , dataCon)
+    .then(res => {
+      console.log(res.data)
+      if(res.data.insertedId){
+        Swal.fire({
+          title: `${name}  Successfully Order`,
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1500,
+          showClass: {
+            popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `
+          },
+          hideClass: {
+            popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `
+          },
+
+          customClass: {
+            title: 'custom-swal-title', // Add a custom class to the title
+          }
+        });
+
+        
+      }
+    })
+  }
     return (
         <div>
              <div   data-aos="fade-down"
@@ -56,20 +132,21 @@ const ContactMiddle = () => {
      className="">
           <SectionTitle heading={"---Send Us a Message---"}  subHeading={"CONTACT FORM"}></SectionTitle>    
         </div>
+        {/* form section */}
          <div className="bg-[#060606a3]">
-         <form className="card-body bg-white ">
+         <form onSubmit={hanldeSubmit} className="card-body bg-white ">
         <div className="md:flex  gap-6  ">
         <div className="form-control md:w-1/2">
           <label className="label">
             <span className="label-text text-black font-bold">Name</span>
           </label>
-          <input type="text" placeholder="Name" className="input input-bordered text-white bg-black font-bold" required />
+          <input type="text" placeholder="Name" name="name" className="input input-bordered text-white bg-black font-bold" required />
         </div>
         <div className="form-control md:w-1/2">
           <label className="label">
             <span className="label-text text-black font-bold">Email</span>
           </label>
-          <input type="email" placeholder="Email" className="input input-bordered bg-black text-white font-bold" required />
+          <input type="email" placeholder="Email" name="email" className="input input-bordered bg-black text-white font-bold" required />
          
         </div>
         </div>
@@ -77,7 +154,7 @@ const ContactMiddle = () => {
           <label className="label">
             <span className="label-text text-black font-bold">Phone</span>
           </label>
-          <input type="phone" placeholder="Phone" className="input input-bordered bg-black text-white font-bold" required />
+          <input type="phone" placeholder="Phone" name="phone" className="input input-bordered bg-black text-white font-bold" required />
          
         </div>
         <br />
@@ -85,10 +162,10 @@ const ContactMiddle = () => {
         <div>
 
     
-            <textarea className="w-full h-96 p-5 bg-black text-white " placeholder="What your message here ?" required></textarea>
+            <textarea name="message" className="w-full h-96 p-5 bg-black text-white " placeholder="What your message here ?" required></textarea>
         </div>
-        <button className="flex  items-center gap-3 bg-gradient-to-tr  from-yellow-600 to-zinc-500  mx-auto p-3 text-white">Sen Message<FaTelegramPlane /></button>
-      </form>
+        <button className="flex  items-center gap-3 bg-gradient-to-tr  from-yellow-600 to-zinc-500  mx-auto p-3 text-white">Send Message<FaTelegramPlane /></button>
+      </form>         
          </div>
         </div>
     );

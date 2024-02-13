@@ -20,7 +20,7 @@ const AdminRoutes = ({children}) => {
     />
 </div>
  }
- if(!user && isAdmin){
+ if(user && isAdmin){
     return children
  }
     return  <Navigate to={"/"} state={{from: location} }  replace ></Navigate>
