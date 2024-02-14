@@ -29,7 +29,13 @@ const Footer = () => {
         <span className="label-text">Enter your email address</span>
       </label> 
       <div className="join">
+      <input
+        type="text"
+        placeholder="username@site.com"
+        className="input input-bordered join-item"
+       
      
+      />
       <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new">
       <button className="btn btn-primary join-item" onClick={handleButtonClick}>
         Subscribe

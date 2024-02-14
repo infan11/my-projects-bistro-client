@@ -17,36 +17,6 @@ const ContactMiddle = () => {
      const phone = form.phone.value;
      const dataCon = {name , email , message, phone}
      console.log(dataCon);
-  //  fetch("http://localhost:5000/contacts" , {
-  //   method:"POST",
-  //   headers:{ "content-type" :  "application/json"
-  // }, 
-  // body:JSON.stringify(dataCon)
-  //  })
-   
-  //  .then(res => res.json())
-  //  .then(data => {
-  //   console.log(data);
-  //   if(data.insertedId){
-  //     Swal.fire({
-  //       title: ` Thank You for your Feedback .  ${name} `,
-  //       showClass: {
-  //         popup: `
-  //           animate__animated
-  //           animate__fadeInUp
-  //           animate__faster
-  //         `
-  //       },
-  //       hideClass: {
-  //         popup: `
-  //           animate__animated
-  //           animate__fadeOutDown
-  //           animate__faster
-  //         `
-  //       }
-  //     });
-  //   }
-  //  })
     axiosSecure.post("/contacts" , dataCon)
     .then(res => {
       console.log(res.data)
@@ -172,3 +142,4 @@ const ContactMiddle = () => {
 };
 
 export default ContactMiddle;
+
