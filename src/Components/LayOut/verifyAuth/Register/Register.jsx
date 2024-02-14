@@ -6,12 +6,12 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import 'react-toastify/dist/ReactToastify.css';
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import useCart from "../../../Hooks/useCart";
+// import useCart from "../../../Hooks/useCart";
 const Register = () => {
     const {createUser , updateUserProfile,  googleAuth, githubAuth,} = useContext(AuthContext)
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || "/"  ;
-    const axiosPublic  = useAxiosSecure();
+    const axiosSecure  = useAxiosSecure();
   const handleFormSubmit = event =>{
     event.preventDefault();
     const form = event.target;
@@ -40,10 +40,10 @@ const Register = () => {
           name: name ,
           email : email
         }
-        axiosPublic.post("/users" , userInfo)
+        axiosSecure.post("/users" , userInfo)
         .then(res => {
           if(res.data.insertedId){
-            console.log("send to database ");
+            console.log ("send to database ");
       
         form.reset();
         Swal.fire({
@@ -62,10 +62,21 @@ const Register = () => {
               animate__faster
             `
           }
-        });
-      }
+       });
+     }
           
     })
+    // fetch("https://bistro-boss-server-projects.vercel.app/users"  , {
+    //   method :  "POST",
+    //   headers : {
+    //     "content-type" :  "application/json "
+    //   },
+    //   body : JSON.stringify(userInfo)
+    // })
+    // .then(res => res.json())
+    // .then(data => {
+    //   console.log(data);
+    // })
       })
      
         navigate(from , {replace : true})
@@ -96,15 +107,17 @@ const Register = () => {
 const handleAuthGoogle = () =>{
     googleAuth()
     .then(result => {
+      
         const googleUser = result.user;
-        console.log(googleUser)
+        console.log(googleUser , "send to database ")
         const userItem = {
           email : result.user?.email,
           name : result.user?.displayName,
         }
-        axiosPublic.post("/users" , userItem)
+        axiosSecure.post("/users" , userItem)
         .then(res => {
           if(res.data){
+            console.log( res.data, "send to database ")
             Swal.fire({
               title: "Successfully Google Register",
               showClass: {

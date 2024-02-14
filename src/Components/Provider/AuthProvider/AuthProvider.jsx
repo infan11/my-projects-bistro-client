@@ -11,7 +11,7 @@ const githubProvider = new GithubAuthProvider();
 const AuthProvider = ({children}) => {
 const [user , setUser] = useState([]);
 
-const [loading , setLoading]= useState(false);
+const [loading , setLoading] = useState(true);
 const axiosPublic =  useAxiosPublic();
 const createUser = (email , password ,) =>{
     setLoading(true);
@@ -50,6 +50,7 @@ useEffect(() => {
            axiosPublic.post("/jwt" ,  userInfo)
            .then(res => {
              if(res.data.token){
+                setLoading(false)   
                 localStorage.setItem("Access-token" , res.data.token)
              }
              
@@ -58,8 +59,9 @@ useEffect(() => {
         else{
             // TODO: remove token (if token stored in the client side: LcalStorage , cashing in  memory)
             localStorage.removeItem("Access-token")
+            setLoading(false)  
         }
-         setLoading(false)  
+        
     })
     return() =>{
         return unSubscribe()

@@ -15,6 +15,7 @@ import Cart from "../Components/LayOut/DashBoard/Cart/Cart";
 import AllUsers from "../Components/LayOut/DashBoard/Admin/AllUsers/AllUsers";
 import AdminRoutes from "./AdminRoutes/AdminRoutes";
 import ContactsInfo from "../Components/LayOut/DashBoard/Admin/ContactsInfo/ContactsInfo";
+import AddItems from "../Components/LayOut/DashBoard/Admin/AddItems/AddItems";
 
 
  export const router = createBrowserRouter([
@@ -53,7 +54,7 @@ import ContactsInfo from "../Components/LayOut/DashBoard/Admin/ContactsInfo/Cont
     },
     {
       path:"/dashboard",
-      element:<AdminRoutes><Dashboard></Dashboard></AdminRoutes>,
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children : [
         {
           path: "/dashboard/cart",
@@ -67,6 +68,10 @@ import ContactsInfo from "../Components/LayOut/DashBoard/Admin/ContactsInfo/Cont
         {
           path:"/dashboard/contactInfo",
           element: <ContactsInfo></ContactsInfo>
+        },
+        {
+          path: "/dashboard/addItems",
+          element :<AdminRoutes> <AddItems></AddItems></AdminRoutes>
         }
       ]
     },

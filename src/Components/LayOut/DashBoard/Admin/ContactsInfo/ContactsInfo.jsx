@@ -3,10 +3,9 @@ import UseAuth from "../../../../Hooks/UseAuth";
 
 
 const ContactsInfo = () => {
-    const [info , setInfo] = useState([]);
-    const { user } = UseAuth()
+    const [info , setInfo] = useState([]); 
    useEffect(() =>{
-    fetch("http://localhost:5000/contacts")
+    fetch("https://bistro-boss-server-projects.vercel.app/contacts")
     .then(res => res.json())
     .then(data => setInfo(data));
    }, [])

@@ -21,9 +21,10 @@ const AdminRoutes = ({children}) => {
 </div>
  }
  if(user && isAdmin){
+   
     return children
  }
     return  <Navigate to={"/"} state={{from: location} }  replace ></Navigate>
 };
 
-export default AdminRoutes;
+export default AdminRoutes
